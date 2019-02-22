@@ -1,1 +1,1 @@
-api_key = "&apikey=c385605f"
+OMDB_api_key = "2e886f7a"
