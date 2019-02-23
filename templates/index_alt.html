@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission To Mars - News & Pics</title>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    
+    body{
+      font-size:14px;
+      background-image: url("{{url_for('static', filename = 'Images/mars_panorama.jpg')}}");
+      
+    }
+    .navbar.withBckGnd{
+      /* background-image: url('https://mars.nasa.gov/assets/footer_bg.png'); */
+      
+      background-image: url("{{url_for('static', filename = 'Images/bck_img_nav.png')}}");
+      background-size: 100%;
+      color:white;
+      /* background-color: beige; */
+    }
+    .footerStyle.withBckGnd{
+      /* background-image: url("{{url_for('static', filename = 'Images/bck_img_nav.png')}}"); */
+      background-color: black;
+      background-size: 100%;
+      font-size:0.8vw;
+      color:white;
+      /* background-color: beige; */
+    }
+  </style>
+</head>
+
+<body>
+<div class="container" style="background-color:white;">
+        
+  <nav class="navbar withBckGnd sticky-top ">
+        <h1 style="font-size:42px;font-weight: bold; text-align: center">Mission to Mars</h1>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="btn btn-primary btn-md" href="/scrape" role="button">Get latest on Mars</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" 
+                aria-haspopup="true" aria-expanded="false" style="color:white">Goto Section</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#latest_news">Latest News</a>
+                  <a class="dropdown-item" href="#featured_img">Featured Image</a>
+                  <a class="dropdown-item" href="#curr_wthr">Current Weather</a>
+                  <a class="dropdown-item" href="#mars_profile">Mars Profile</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#mars_hemis">View Mars Hemispheres</a>
+                </div>
+              </li>
+          </ul>
+  </nav>
+   
+  <div class="container-fluid" style="background-color:white;">
+    <div class = "row">
+      <div class = "col-xs-12 col-sm-12 col-md-8">
+        <!-- Latest News Section -->
+    <div id = "latest_news"></div>
+    <div class="card" style = "border:none;margin:1rem 0 0 0;" >
+        <div class="card-header"  style = "border:none;margin:1rem 0 0 0;">
+            <h3><strong>Latest Mars News</strong></h3>
+        </div>
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-body">
+          <span class = "text-muted">{{marsData.NewsDate}}</span>
+          <h4 class="card-title"><strong>{{marsData.NewsTitle}}</strong></h4>
+          <p class="card-text">{{marsData.News_subTitle}}
+            <br>
+          <span class="card-text text-right">
+            <small class="text-muted">-Source : NASA Mars New website</small>
+            <small class="text-muted">For more news visit <a href="https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest" class="card-link" target = "_blank">
+            NASA's news website</small></a></span>
+
+        </p>
+        </div>
+    </div>
+      <!-- <br><br> -->           
+    <!-- Latest News Section END  -->
+      </div>
+      <div class = "col-xs-12 col-sm-12 col-md-4">
+          <!-- Mars Weather section -->
+          <div id = "curr_wthr"></div>
+          <div class="card" style="margin: 2rem 2rem 2rem 1rem;  width:90%; background-color: rgba(236, 162, 25, 0.5)" id = "curr_wthr">
+              <!-- <div class="card-header">
+                  <h3><strong>Current Weather on Mars</strong></h3>
+              </div> -->
+              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+              <div class="card-body"  style="border-width:1px;">
+                <h5 class="card-title"><strong>Current Weather on Mars</strong></h5>
+                
+                <p class="card-text">{{marsData.mars_latestWthr}}</p>
+                <span class="card-text text-left">
+                    <small class="text-muted">-Source : 
+                      <a href="https://twitter.com/marswxreport?lang=en">Mars Weather twitter account</a>
+                    </small>
+                </span>
+                
+              </div>
+          </div>
+          </div>
+        <!-- Mars Weather section END -->
+        </div>
+    </div>
+    
+   <div class = "container-fluid" style = "background-color: white;">
+    <div class="row">
+      <div class = "col-xs-12 col-sm-12 col-md-6">
+          
+          <div class = "row">
+              <!-- Featured Image Section -->
+          <div id = "featured_img"></div>
+          <div class="card" style="margin: 0 2rem 2rem 1rem; border:none;">
+              <div class="card-header">
+                  <h3><strong>Featured Mars Image</strong></h3>
+              </div>
+              <p class = "card-text" >{{marsData.mars_LatestImg_desc}}
+              <br>
+              <span class="card-text">
+                  <small class="text-muted">Source : 
+                    <a href="https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars">Mars Images from NASA Jet Propulsion Laboratory</a>
+                  </small>
+                </span>
+              </p>
+              <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">
+                <img class="img-thumbnail img-fluid" src={{marsData.mars_img_thumbnail}} alt="Featured Mars Image -thumbnail" 
+                style="object-fit: cover;">
+              </button> -->
+              <a href="{{marsData.mars_LatestImg}}" target="_blank">
+                <img class="img-thumbnail img-fluid" src={{marsData.mars_img_thumbnail}} alt="Featured Mars Image -thumbnail" 
+                style="object-fit: cover;">
+              </a>
+              <p class = "card-text text-muted text-center" >>>>Click on the image to view in full size<<<</p>
+              
+            </div>
+            <!-- Modal to show the image overaly in main screen-->
+            <!-- <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" 
+            style="background-color:rgba(0, 0, 0, 0.4); border:none; margin:7px;">
+              <div class="modal-dialog" style="background-color:rgba(0, 0, 0, 0.4);border:none;">
+                <div class="modal-content" style="background-color:rgba(0, 0, 0, 0.4); border:none;">
+                    <div class="modal-body text-center" style="background-color:rgba(0, 0, 0, 0.4); border:none;">
+                      
+                        <img src="{{marsData.mars_LatestImg}}" class="img-responsive"
+                        style="border-width: 10px; padding:15px;margin:10px; overflow-x: visible; overflow-y: visible;border-color: #f2f2f2; border-style: double;">
+                        <a href="/"><span style = "color:white; font-weight:bolder; font-size:18px;border-width:1px;vertical-align: top;text-align: right">
+                          &nbsp;&nbsp; X &nbsp;&nbsp;
+                         </span></a>
+                        <br>
+                        <span style = "color:white">{{marsData.mars_img_title}}</span>
+                    </div>
+                </div>
+              </div>
+            </div> -->
+          </div><!-- Featured Image section END -->
+          <!-- <div class="row">
+              <div class = "col-xs-12 col-sm-12 col-md-12">
+              
+            </div>
+        </div>  -->
+      </div><!-- Featured image  & weather col end-->
+      <div class = "col-xs-12 col-sm-12 col-md-6">          
+            <div class = "row">
+              <div class = "col-xs-12  col-sm-12 col-md-12">
+              <!-- Mars Profile Section -->
+              <div id = "mars_profile"></div>
+              <div class="card" style="margin: 0 1rem 2rem 1rem; border:none; width:100%;" id = "mars_profile">          
+                  <div class="card-header">
+                      <h3><strong>Mars Planet Profile</strong></h3>
+                  </div>
+                  <div class="card-body">
+                    <!-- <h4 class="card-title"><strong>Mars Planet Profile</strong></h4> -->
+                    
+                    <span class="card-text">
+                      <div class="table-responsive">
+                        {{marsData.mars_profile | safe}}
+                      </div>
+                    </span>
+                    <span class="card-text text-right">
+                        <small class="text-muted">(Courtesy : <a href="https://space-facts.com/mars/" target="_blank">Space facts</a>)</small>                  
+                    </span>
+                  </div>
+              </div>
+            <!-- Mars Profile section END -->
+            </div></div>
+      </div><!--Mars Profile Col end -->
+    </div>
+    
+  </div>
+    
+    
+        
+    <!-- <div class = "row">
+      <div class="col-xs-2 col-md-2" style = "width : 2%"></div>
+      <div class = "col-xs-12 col-md-8"> -->
+  <div id = "mars_hemis"></div>
+  <div class="card-header text-center" id = "mars_hemis">
+      <h3><strong>Mars Hemispheres</strong></h3>
+      <small class="text-muted text-right">-Source : 
+          <a href="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars">
+            USGS Astrogeology website </a>
+        </small>
+  </div>
+  <div class = "card-deck"  style = "display: inline-block;">
+          
+    <div class = "row text-center">
+              
+      {% for hemi in marsData.mars_hemis_imgs %} 
+      <div class = "col-xs-12 col-sm-12 col-md-6">
+      <div class="card" style = "display: inline-block; margin:1rem 0 1rem 0; border:1rem;">            
+        <img class="img-thumbnail" src="{{hemi.ImgURL|safe}}" alt="{{hemi.Title}}" width="80%">
+        <div class="card-body"  style="border-width:1px;">
+          <h5 class="card-title"><strong>{{hemi.Title}}</strong></h5>
+        </div>
+      </div>
+      
+      </div>
+      
+    {% endfor %}
+    
+  </div></div>
+      
+        <!-- </div>
+        <div class="col-xs-2 col-md-2" style = "width : 10%"></div>
+      </div> -->
+  
+      <footer class="footerStyle withBckGnd" style="margin-bottom: 1rem;" >
+          <div class="container-fluid">
+            <div class = "row">
+              <div class="col-xs-4 col-sm-4 col-md-3">
+                  <p>
+                    <span class="text-left"><a href="#top" style="color:white;">
+                      <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                      <span ><small>&nbsp;^ Top</small></span></a></span>
+                    </p>
+                  </div>
+              <div class="col-xs-4 col-sm-4 col-md-9">
+                <span class="text-right text-muted" style="font-size:0.5vw;">Disclaimer: All contents obtained from NASAs websites related Mars Mission. 
+                  This contents are to be used for informational and educational purposes only</span>
+            </p>
+          </div>
+            </div>
+          </div>
+        </footer>
+    
+  </div>
+  <!-- </div> -->
+  
+  <!-- BOOTSTRAP SCRIPT  -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
