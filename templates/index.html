@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="Images/globe_pic2_upd.png">
+
+    <title>Movies - ETL</title>
+
+     <!-- Bootstrap core CSS -->
+     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-uhut8PejFZO8994oEgm/ZfAv0mW1/b83nczZzSwElbeILxwkN491YQXsCFTE6+nx" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- Bootstrap theme -->
+    <!-- <link href="https://bootswatch.com/4/cerulean/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://bootswatch.com/4/lux/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt" crossorigin="anonymous"> -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous"> -->
+    
+    
+    <!-- Custom styles for this template -->
+    <!-- <link href="theme.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+  <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Movies Zone</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarColor02"  style="float:left;">
+        <ul class="navbar-nav mr-auto " >
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Comparisons</a>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Data</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/TMDB_data">TMDB Raw Data</a>
+                <a class="dropdown-item" href="/OMDB_data">OMDB Raw Data</a>
+                
+              </div>
+            </li>
+         
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              Plots</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </li>
+        </ul>
+        
+      </div>
+    </nav>
+    <!-- NAVBAR END -->
+
+    <!--
+      Start Main content container
+      #################################################################
+    -->
+    <div class="container-fluid">
+        <div class = "row" id = "mainCnt_row">
+          <div class = "col-xs-0 col-md-1" id = "dummyCol" style = "width:4%;"></div>
+          <div class = "col-xs-12 col-md-7 colStyle" id = "mainCnt_col1">
+            <div class = "row" id = "mainCnt_col1_Hdr">
+              <div class = "col-xs-12 col-md-12">
+                  <div class="page-header">
+                      <h2>Weather Analysis By Latitude <br>
+                        <small>Lattitude vs. X</small></h2>
+                    </div>
+              </div>
+            </div>
+            <div class = "row" id = "mainCnt_col1_info">              
+              <div class = "col-xs-12 col-md-12">
+                  <div class="pull-left">
+                    <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Temp.png?raw=true" 
+                    alt = "Max Temp by Lattitude" class = "imgSpec"  width = "55%" align='left'>
+                                      
+                    <p class = "lead">
+                        Can we prove with data that it gets hotter as we come closer to Equator?
+                    </p>
+                    <p  class = "lead">
+                        <span><strong>The purpose of this project is to prove it does...</strong></span>
+                    </p>
+                    <p>
+                        We will use Python requests, APIs, and JSON traversals to answer this fundamental question and 
+                        explore the effect of Latitude on Maximum Temperature, Humidity, Cloudiness, and Wind Speed.                    
+                      
+                    </p>
+                    </div>  
+                    
+              </div>
+            </div>
+            <div class = "row" id = "mainCnt_col1_info2">
+              <div class = "col-xs-12 col-md-12">
+                <div class = "pull-left">
+                    <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/SampleSpread.png?raw=true" 
+                    alt = "Latitudes Chosen" class = "imgSpec" width = "55%" align = "right">
+                  <p>
+                    To accomplish this, we use Openweather API to obtain Temperature, Humidity, Cloudiness and Wind Speed for 
+                    over 500 unique cities across the world. 
+                  </p>   
+                  <p>
+                    After assembling the data, we explore and analyse the below relationships using scatter plots.
+                    <ul>
+                        <li>Temperature (F) vs. Latitude</li>
+                        <li>Humidity (%) vs. Latitude</li>
+                        <li>Cloudiness (%) vs. Latitude</li>
+                        <li>Wind Speed (mph) vs. Latitude</li>
+                    </ul>
+                  </p>
+                  <p>The results of the analysis are published in this site along with source data and generated Visualizations</p>
+                  
+                  </div>
+                </div>
+                </div>
+              
+          
+        
+          </div>
+         
+        <div class="col-xs-12 col-md-4 colStyle" id = "mainCnt_col2">
+              <div class = "row" id = "mainCnt_col2_Hdr">
+                  <div class = "col-xs-12 col-md-12">
+                      <div class="page-header">
+                          <h2>Visualizations<br><small>Weather variations vs Latitude</small></h2>
+                        </div>
+                  </div>
+                </div>
+                <div class = "row imagetiles text-center" id = "mainCnt_col2_tn1">
+                    <!-- <div class = "col-xs-1 col-sm-1 col-md-1" width="2%;"></div> -->
+                    <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
+                      <a href="MaxTempByLatitude.html">
+                        <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Temp.png?raw=true"
+                        alt = "Max Temp vs Latitude" class = "img-thumbnail imgLnkHover">
+                      </a>
+                        <div class = "figCaption">Fig 1. Max Temperature vs Latitude</div>
+                      
+                    </div>
+                    <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
+                      <a href="CloudinessByLatitude.html">
+                      <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Cloudiness.png?raw=true"
+                        alt = "Cloudiness vs Latitude" class = "img-thumbnail imgLnkHover">
+                      </a>
+                        <div class = "figCaption">Fig 2. Cloudiness vs Latitude</div>
+                      
+                    </div>
+                  <!-- </div>
+                  <div class = "row" id = "mainCnt_col2_tn2"> -->
+                      <!-- <div class = "col-xs-1 col-sm-1 col-md-1" width="2%;"></div> -->
+                      <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
+                        <a href="HumidityByLatitude.html">
+                        <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Humidity.png?raw=true"
+                          alt = "Humidity vs Latitude" class = "img-thumbnail imgLnkHover">
+                        </a>
+                          <div class = "figCaption">Fig 3. Humidity vs Latitude</div>
+                        
+                      </div>
+                      <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
+                          <a href="WndSpdByLatitude.html">  
+                            <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_WindSpd.png?raw=true"
+                            alt = "Wind Speed vs Latitude" class = "img-thumbnail imgLnkHover">
+                          </a>
+                            <div class = "figCaption">Fig 4. Wind Speed vs Latitude</div>
+                          
+                      </div>
+                      
+                  </div>
+          </div>
+
+        </div>
+    </div>
+    <!--
+      Footer code
+      #################################################################
+    -->
+    <footer class="footerStyle" >
+        <div class="container-fluid">
+          <div class = "row">
+            <div class="col-xs-0 col-md-2"></div>
+            <div class="col-xs-1 col-md-1">
+              <a href="#top" style="color:white;">
+                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                <span class="border-bottom"><small>&nbsp;Top</small></span></a>
+            </div>
+            <div class = "col-xs-11 col-md-9 text-right">              
+              <a href="index.html" style="color:white;">
+                      <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                      <span class="border-bottom"><small>&nbsp;Home</small></span></a>
+              &nbsp;|&nbsp;
+              <a href="Comparison.html" style="color:white;">
+                  <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                  <span class="border-bottom"><small>&nbsp;Comparison</small></span></a>
+              &nbsp;|&nbsp;
+              
+              <a href="CitiesData.htm" style="color:white;">
+                  <span class="glyphicon glyphicon-stats" aria-hidden="true"></span>
+                  <span class="border-bottom"><small>&nbsp;Data</small></span></a>
+            </div>
+            <div class="col-xs-0 col-md-1"></div>
+          </div>
+        </div>
+      </footer>
+   
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    
+  </body>
+</html>
