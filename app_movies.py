@@ -41,8 +41,24 @@ def omdb_data():
     htm = mfn.renderOMDBData_html()
 
     return render_template("OMDB-Data.htm", omdb_htm = htm)
-    
 
+# Route that will trigger the TMDB data page
+@app.route("/COMB_data")
+def comdb_data():
+
+    # Run the scrape function and save the results to a variable
+    htm = mfn.renderCombData_html()
+
+    return render_template("COMDB-Data.htm", comdb_htm = htm)
+    
+# Route that will trigger the TMDB data page
+@app.route("/movie_revenue")
+def movie_rev():
+
+    # Run the scrape function and save the results to a variable
+    #htm = mfn.renderTMDBData_html()
+
+    return render_template("movie_revenue.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
