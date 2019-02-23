@@ -21,7 +21,7 @@ def home():
 
         
     # Return template and data
-    return render_template("index.html")
+    return render_template("default.html")
 
 
 # Route that will trigger the TMDB data page
