@@ -35,9 +35,15 @@
     
       <div class="collapse navbar-collapse" id="navbarColor02"  style="float:left;">
         <ul class="navbar-nav mr-auto " >
-          
+<!--           
           <li class="nav-item">
-            <a class="nav-link" href="#">Comparisons</a>
+            <a class="nav-link" href="/movie_revenue">Movie Revenue</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Rating Comparison</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Genre</a> -->
           </li>
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -45,21 +51,11 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/TMDB_data">TMDB Raw Data</a>
                 <a class="dropdown-item" href="/OMDB_data">OMDB Raw Data</a>
-                
+                <a class="dropdown-item" href="/COMB_data">Combined Dataset</a>
               </div>
             </li>
          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              Plots</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </li>
+          
         </ul>
         
       </div>
@@ -70,6 +66,7 @@
       Start Main content container
       #################################################################
     -->
+
     <div class="container-fluid">
         <div class = "row" id = "mainCnt_row">
           <div class = "col-xs-0 col-md-1" id = "dummyCol" style = "width:4%;"></div>
@@ -77,33 +74,34 @@
             <div class = "row" id = "mainCnt_col1_Hdr">
               <div class = "col-xs-12 col-md-12">
                   <div class="page-header">
-                      <h2>Weather Analysis By Latitude <br>
-                        <small>Lattitude vs. X</small></h2>
+                      <h2>20 years of Movies<br>
+                        <small></small></h2>
                     </div>
               </div>
             </div>
             <div class = "row" id = "mainCnt_col1_info">              
               <div class = "col-xs-12 col-md-12">
                   <div class="pull-left">
-                    <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Temp.png?raw=true" 
-                    alt = "Max Temp by Lattitude" class = "imgSpec"  width = "55%" align='left'>
+                    <img src = "../static/images/metascore_tmdb_rating_compare.png" 
+                    alt = "Ratings - critics vs. audience" class = "imgSpec"  width = "55%" align='left'>
                                       
                     <p class = "lead">
-                        Can we prove with data that it gets hotter as we come closer to Equator?
+                      What can we say about the success of a movie before it is released? How do ratings compare?
                     </p>
                     <p  class = "lead">
                         <span><strong>The purpose of this project is to prove it does...</strong></span>
                     </p>
                     <p>
-                        We will use Python requests, APIs, and JSON traversals to answer this fundamental question and 
-                        explore the effect of Latitude on Maximum Temperature, Humidity, Cloudiness, and Wind Speed.                    
+                      What can we say about the success of a movie before it is released? Are there certain companies (Pixar?) that have found a consistent formula? Given that major films costing over $100 million to produce can still flop, this question is more important than ever to the industry. Film aficionados might have different interests. Can we predict which films will be highly rated, whether or not they are a commercial success?
+
+                      This is a great place to start digging in to those questions, with data on the plot, cast, crew, budget, and revenues of several thousand films.                  
                       
                     </p>
                     </div>  
                     
               </div>
             </div>
-            <div class = "row" id = "mainCnt_col1_info2">
+            <!-- <div class = "row" id = "mainCnt_col1_info2">
               <div class = "col-xs-12 col-md-12">
                 <div class = "pull-left">
                     <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/SampleSpread.png?raw=true" 
@@ -125,7 +123,7 @@
                   
                   </div>
                 </div>
-                </div>
+                </div> -->
               
           
         
@@ -135,45 +133,45 @@
               <div class = "row" id = "mainCnt_col2_Hdr">
                   <div class = "col-xs-12 col-md-12">
                       <div class="page-header">
-                          <h2>Visualizations<br><small>Weather variations vs Latitude</small></h2>
+                          <h2>Visualizations<br><small>Movies performance, revenue grosser....</small></h2>
                         </div>
                   </div>
                 </div>
                 <div class = "row imagetiles text-center" id = "mainCnt_col2_tn1">
                     <!-- <div class = "col-xs-1 col-sm-1 col-md-1" width="2%;"></div> -->
                     <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
-                      <a href="MaxTempByLatitude.html">
-                        <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Temp.png?raw=true"
-                        alt = "Max Temp vs Latitude" class = "img-thumbnail imgLnkHover">
+                      <a href="#">
+                        <img src = "../static/images/Top15grossing.png"
+                        alt = "Top 15 grossers" class = "img-thumbnail imgLnkHover">
                       </a>
-                        <div class = "figCaption">Fig 1. Max Temperature vs Latitude</div>
+                        <!-- <div class = "figCaption">Fig 1. Top 15 Revenue Grossing Movies</div> -->
                       
                     </div>
                     <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
-                      <a href="CloudinessByLatitude.html">
-                      <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Cloudiness.png?raw=true"
-                        alt = "Cloudiness vs Latitude" class = "img-thumbnail imgLnkHover">
+                      <a href="#">
+                      <img src = "../static/images/Top15.png"
+                        alt = "Top 15 reveue vs budget" class = "img-thumbnail imgLnkHover">
                       </a>
-                        <div class = "figCaption">Fig 2. Cloudiness vs Latitude</div>
+                        <!-- <div class = "figCaption">Fig 2. Cloudiness vs Latitude</div> -->
                       
                     </div>
                   <!-- </div>
                   <div class = "row" id = "mainCnt_col2_tn2"> -->
                       <!-- <div class = "col-xs-1 col-sm-1 col-md-1" width="2%;"></div> -->
                       <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
-                        <a href="HumidityByLatitude.html">
-                        <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_Humidity.png?raw=true"
-                          alt = "Humidity vs Latitude" class = "img-thumbnail imgLnkHover">
+                        <a href="#">
+                        <img src = "../static/images/15flops.png"
+                          alt = "Least 15 grossing movies" class = "img-thumbnail imgLnkHover">
                         </a>
-                          <div class = "figCaption">Fig 3. Humidity vs Latitude</div>
+                          <!-- <div class = "figCaption">Fig 3. Humidity vs Latitude</div> -->
                         
                       </div>
                       <div class = "col-xs-3 col-sm-3 col-md-6 imgTNSpec">
-                          <a href="WndSpdByLatitude.html">  
-                            <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/Lattitude_WindSpd.png?raw=true"
-                            alt = "Wind Speed vs Latitude" class = "img-thumbnail imgLnkHover">
+                          <a href="#">  
+                            <img src = "../static/images/budget_movcnt_yrs.png"
+                            alt = "Budget vs movie count over years" class = "img-thumbnail imgLnkHover">
                           </a>
-                            <div class = "figCaption">Fig 4. Wind Speed vs Latitude</div>
+                            <!-- <div class = "figCaption">Fig 4. Wind Speed vs Latitude</div> -->
                           
                       </div>
                       
