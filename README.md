@@ -4,6 +4,7 @@ Running Instruction
 - Run TMDB_OMDB_extract_transform.ipynb
 - Then run Movies_data_load.ipynb
 - Visualizations: 
+  
   1.Metascore_tmdb_rating_compare
   
   2.budget_movcnt_yrs- Budget vs number of movies over years
