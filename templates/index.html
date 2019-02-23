@@ -22,7 +22,7 @@
     
     
     <!-- Custom styles for this template -->
-    <!-- <link href="theme.css" rel="stylesheet"> -->
+    <link href="../static/css/theme.css" rel="stylesheet">
   </head>
 
   <body>
@@ -34,17 +34,8 @@
       </button>
     
       <div class="collapse navbar-collapse" id="navbarColor02"  style="float:left;">
-        <ul class="navbar-nav mr-auto " >
-<!--           
-          <li class="nav-item">
-            <a class="nav-link" href="/movie_revenue">Movie Revenue</a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#">Rating Comparison</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Genre</a> -->
-          </li>
+        <ul class="navbar-nav mr-auto" >
+
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 Data</a>
@@ -54,8 +45,6 @@
                 <a class="dropdown-item" href="/COMB_data">Combined Dataset</a>
               </div>
             </li>
-         
-          
         </ul>
         
       </div>
@@ -110,31 +99,6 @@
                     
               </div>
             </div>
-            <!-- <div class = "row" id = "mainCnt_col1_info2">
-              <div class = "col-xs-12 col-md-12">
-                <div class = "pull-left">
-                    <img src = "https://github.com/Madhuram-S/WeatherPy/blob/master/Images/SampleSpread.png?raw=true" 
-                    alt = "Latitudes Chosen" class = "imgSpec" width = "55%" align = "right">
-                  <p>
-                    To accomplish this, we use Openweather API to obtain Temperature, Humidity, Cloudiness and Wind Speed for 
-                    over 500 unique cities across the world. 
-                  </p>   
-                  <p>
-                    After assembling the data, we explore and analyse the below relationships using scatter plots.
-                    <ul>
-                        <li>Temperature (F) vs. Latitude</li>
-                        <li>Humidity (%) vs. Latitude</li>
-                        <li>Cloudiness (%) vs. Latitude</li>
-                        <li>Wind Speed (mph) vs. Latitude</li>
-                    </ul>
-                  </p>
-                  <p>The results of the analysis are published in this site along with source data and generated Visualizations</p>
-                  
-                  </div>
-                </div>
-                </div> -->
-              
-          
         
           </div>
          
@@ -153,6 +117,11 @@
                         <img src = "../static/images/Top15grossing.png"
                         alt = "Top 15 grossers" class = "img-thumbnail imgLnkHover">
                       </a>
+                      <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">
+                <img class="img-thumbnail img-fluid" src="../static/images/Top15grossing_upd.png"
+                alt="Top 15 grossers" 
+                style="object-fit: cover;">
+              </button> -->
                         <!-- <div class = "figCaption">Fig 1. Top 15 Revenue Grossing Movies</div> -->
                       
                     </div>
@@ -213,7 +182,25 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    
+    <!-- Modal to show the image overaly in main screen-->
+            <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" 
+            style="background-color:rgba(0, 0, 0, 0.4); border:none; margin:7px;">
+              <div class="modal-dialog" style="background-color:rgba(0, 0, 0, 0.4);border:none;">
+                <div class="modal-content" style="background-color:rgba(0, 0, 0, 0.4); border:none;">
+                    <div class="modal-body text-center" style="background-color:rgba(0, 0, 0, 0.4); border:none;">
+                      
+                        <img src="../static/images/Top15grosing_upd.png" class="img-responsive"
+                        style="border-width: 10px; padding:15px;margin:10px; overflow-x: visible; overflow-y: visible;border-color: #f2f2f2; border-style: double;">
+                        <a href="#"><span style = "color:white; font-weight:bolder; font-size:18px;border-width:1px;vertical-align: top;text-align: right">
+                          &nbsp;&nbsp; X &nbsp;&nbsp;
+                         </span></a>
+                        <br>
+                        <span style = "color:white">Highest Revenue Grossing - Top 15 movies - </span>
+                    </div>
+                </div>
+              </div>
+            </div>
     
   </body>
 </html>

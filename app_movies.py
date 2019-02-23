@@ -7,6 +7,10 @@ import os
 # Create an instance of Flask
 app = Flask(__name__)
 
+app.config["CACHE_TYPE"] = "null"
+# change to "redis" and restart to cache again
+
+
 
 # Use PyMongo to establish Mongo connection
 mongo = PyMongo(app, uri="mongodb://localhost:27017/moviesdb")
@@ -21,7 +25,7 @@ def home():
 
         
     # Return template and data
-    return render_template("default.html")
+    return render_template("index.html")
 
 
 # Route that will trigger the TMDB data page
