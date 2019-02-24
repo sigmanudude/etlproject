@@ -56,13 +56,13 @@ def comdb_data():
     return render_template("COMDB-Data.htm", comdb_htm = htm)
     
 # Route that will trigger the TMDB data page
-@app.route("/movie_revenue")
-def movie_rev():
+@app.route("/process")
+def process():
 
     # Run the scrape function and save the results to a variable
     #htm = mfn.renderTMDBData_html()
 
-    return render_template("movie_revenue.html")
+    return render_template("Process.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
