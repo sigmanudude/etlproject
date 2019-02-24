@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../static/images/etl_ico.PNG">
+
+    <title>Movies - ETL - Process Followed</title>
+
+     <!-- Bootstrap core CSS -->
+     <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css" rel="stylesheet" integrity="sha384-uhut8PejFZO8994oEgm/ZfAv0mW1/b83nczZzSwElbeILxwkN491YQXsCFTE6+nx" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <!-- Bootstrap theme -->
+    <!-- <link href="https://bootswatch.com/4/cerulean/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://bootswatch.com/4/lux/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/lux/bootstrap.min.css" rel="stylesheet" integrity="sha384-hVpXlpdRmJ+uXGwD5W6HZMnR9ENcKVRn855pPbuI/mwPIEKAuKgTKgGksVGmlAvt" crossorigin="anonymous"> -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-C++cugH8+Uf86JbNOnQoBweHHAe/wVKN/mb0lTybu/NZ9sEYbd+BbbYtNpWYAsNP" crossorigin="anonymous"> -->
+    
+    
+    <!-- Custom styles for this template -->
+    <link href="../static/css/theme.css" rel="stylesheet">
+    <style>
+        .card-body{
+            padding:2px;
+            
+        }
+        .card-header{
+            padding:8px;
+            background-color:rgba(90, 88, 88, 0.678);
+            color:white;
+        }
+        .row
+        {
+          font-size:0.75rem;
+        }
+    </style>
+  </head>
+
+  <body style="background-color:black;">
+  
+    <!--
+      Start Main content container
+      #################################################################
+    -->
+    <div class = "container" style="background-color:white;">
+      <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Movies Zone</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor02"  style="float:left;">
+          <ul class="navbar-nav mr-auto" >
+                  <li class="nav-item active" style="background-color:grey;">
+                          <a class="nav-link" href="/process">Process</a>
+                        </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  Data</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/TMDB_data">TMDB Raw Data</a>
+                  <a class="dropdown-item" href="/OMDB_data">OMDB Raw Data</a>
+                  <a class="dropdown-item" href="/COMB_data">Combined Dataset</a>
+                </div>
+              </li>
+          </ul>
+          
+        </div>
+      </nav>
+      <!-- NAVBAR END -->
+  
+        <div class = "row">
+            <div class="col-xs-12 col-sm-12 col-md-5">
+                <div class="card" style = "border:none;margin:1rem 0 0 0;" >
+                    <div class="card-header">
+                        <h5><strong>Process Scope & Steps</strong></h5>
+                    </div>
+                    <!-- <img class="img-thumbnail img-fluid" src="../static/images/process.PNG" alt="This project process Steps"> -->
+                    <div class="card-body">
+                    <h5 class="card-title"><strong>In this project, we will</strong></h5>
+                    
+                    <p class="card-text">
+                            
+                        <ul>
+                            <li>Define objectives (Why, what and how).</li>
+                            <li>Define Sources of Data and Destination where it will be stored</li>
+                            <li>Define Data Extraction, Transformation and Load process</li>
+                            <li>Perform Data Extraction, Transformation and Load</li>
+                            <li>Data Analysis & Visualization</li>
+                            <li>Publish results on web using Flask</li>
+                        </ul>
+                    </p>
+                    
+                    </div>
+                </div>
+            </div>
+             <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="card" style = "border:none;margin:1rem 0 0 0;" >
+                        
+                        <div class="card-body">
+                                <img class="img-thumbnail img-fluid" src="../static/images/process.PNG" alt="This project process Steps" 
+                                align = "right">   
+                        </div>
+                </div>            
+            </div>
+        </div>
+        <div class="row" >
+            <!-- Extraction & exploration process -->
+            <div class = "col-xs-12 col-sm-12 col-md-3">
+                <div class="card" style = "border:none;margin:1rem 0 0 0;" >
+                        <div class="card-header">
+                            <h5><strong>Data Extraction</strong></h5>
+                        </div>
+                        <div class="card-body">
+                                <h6 class="card-title"><strong>TMDB data extraction</strong></h6>
+                               <ul>
+                                   <li>CSV file is obtained from Kaggle (
+                                        <a href="https://www.kaggle.com/tmdb/tmdb-movie-metadata/home" target="_blank">link</a>) and locally stored </li>
+                                   <li>We will use budget, revenue, release date and audience rating</li>
+                                    <li>Only movies released from January, 2000 is only considered</li>
+                               </ul>
+                               <h6 class="card-title"><strong>OMDB data extraction</strong></h6>
+                               <ul>
+                                    <li>OMDB : JSON data obtained through API request from 
+                                        <a href = "http://www.omdbapi.com/" target="_blank">OMDB API site</a></li>
+                                    <li>For each movie in TMDB, an OMDB record is extracted via API request</li>
+                                    <li>Key information we use from OMDB are Metascore (critics rating) & Genre</li>
+                                </ul>
+                            
+                        </div>
+                </div>
+            </div>
+            <!-- Transformation process -->
+            <div class = "col-xs-12 col-sm-12 col-md-3">
+                    <div class="card" style = "border:none;margin:1rem 0 0 0;" >
+                            <div class="card-header">
+                                <h5><strong>Data Transformation</strong></h5>
+                            </div>
+                            <div class="card-body">
+                                    <!-- <h6 class="card-title"><strong>Key activities, </strong></h6> -->
+                                   
+                                       <span style ="background-color: gold; font-weight:bold;">Filtering</span>:
+                                        Only required columns that will used in current and future analysis will be 
+                                        filtered & transfered to DB
+                                        <br>
+                                        <span style ="background-color: gold; font-weight:bold;">Missing Values</span>:
+                                            <ul style="margin:0px;font-size:0.65rem">
+                                                <li><strong>Primary columns(Title and Year)-</strong> If any of these is null, row is dropped</li>
+                                                <li><strong>Other columns - </strong>NA is filled up Zero or mean (if numeric), and "Not provided" (if categorical)</li>
+                                            </ul>
+                                        <span style ="background-color: gold; font-weight:bold;">Duplicates</span>:
+                                            The row is dropped if both title and release date is duplicated. 
+                                            If only title is duplicated, it indicates a remake and retained
+                                        <span style ="background-color: gold; font-weight:bold;">Merging</span>:
+                                        TMDB and OMDB are merged by Title and Year columns with inner type of join
+                                        <br> All cleaned datasets are saved in CSV and loaded to Mongo DB as well
+                                
+                            </div>
+                    </div>
+            </div>
+            <!-- Loading process -->
+            <div class = "col-xs-12 col-sm-12 col-md-3">
+                    <div class="card" style = "border:none;margin:1rem 0 0 0;" >
+                            <div class="card-header">
+                                <h5><strong>Loading to Mongo</strong></h5>
+                            </div>
+                            <div class="card-body">
+                                    <!-- <h6 class="card-title"><strong>Key activities, </strong></h6> -->
+                                   
+                                       <span style ="background-color: gold; font-weight:bold;">Reason for Mongo:</span>:
+                                        We chose Mongo for it 
+                                        <ul style="margin:0px;">
+                                            <li>Ease of use</li>
+                                            <li>flexibity to change columns without structure alteration like mysql</li>                                            
+                                        </ul>
+                                        <span style ="background-color: gold; font-weight:bold;">Loading:</span>:
+                                            <ul style="margin:0px;">
+                                                <li><strong>Initialization:</strong> Using PyMongo, connection is initialised to localhost. 
+                                                Three collections are created (TMDB cleaned, OMDB cleaned and Merged)</li>
+                                                <li><strong>Loading: </strong>Dataframe converted into dictionary is loaded using InsertMany()</li>
+                                                
+                                            </ul>
+                                            <span style ="background-color: gold; font-weight:bold;">Load verification:</span>:
+                                            <ul style="margin:0px;">
+                                                    <li>Check #1: verified through the count of records inserted</li>
+                                                    <li>Check #2: By querying for a random record and matching it up with DataFrame</li>
+                                                    <li>Check #3: By using Mongo Terminal to verify success</li>
+                                                </ul>
+                                   
+                                
+                            </div>
+                    </div>
+            </div>
+            <!-- Visualization & Publshing process -->
+            <div class = "col-xs-12 col-sm-12 col-md-3">
+                    <div class="card" style = "border:none;margin:1rem 0 0 0;" >
+                            <div class="card-header">
+                                <h5><strong>Visualization & Publishing</strong></h5>
+                            </div>
+                            <div class="card-body">
+                                    <!-- <h6 class="card-title"><strong>Key activities, </strong></h6> -->
+                                   
+                                       <span style ="background-color: gold; font-weight:bold;">Visualization</span>:
+                                        We will be producing plots to analyse, 
+                                        <ul style="margin:0px;">
+                                            <li>Top 5 Movie Genres by # of Movies produced</li>
+                                            <li>Revenue: Top 15 and Least 15</li>
+                                            <li>Comaprison of Budget vs Revenue for Top 15</li>
+                                            <li>Year-wise comaprison of Budget vs # of Movies Produced</li>
+                                            <li>Comaprison of Metascore (critics rating) vs Audience Rating</li>                                            
+                                        </ul>
+                                        <span style ="background-color: gold; font-weight:bold;">Publishing:</span>
+                                            The analysis and data will be published using HTML, CSS and rendered through Flask.
+                                   
+                                
+                            </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!--
+      Footer code
+      #################################################################
+    -->
+    <footer class="footerStyle" >
+        <div class="container-fluid">
+          <div class = "row">
+            <div class="col-xs-0 col-md-2"></div>
+            <div class="col-xs-1 col-md-1">
+              <a href="#top" style="color:white;">
+                <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                <span class="border-bottom"><small>&nbsp;Top</small></span></a>
+            </div>
+            
+          </div>
+        </div>
+      </footer>
+   
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+    
+  </body>
+</html>
